@@ -1,0 +1,106 @@
+<mat-card>
+  <p class="title-p">部位管理</p>
+  <br>
+   <button mat-fab color="warn" (click)="openDialog()">
+          <mat-icon>add</mat-icon>
+        </button>
+    <mat-form-field appearance="fill">
+      <mat-label>交易日</mat-label>
+      <input type="date" matInput>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>買／賣/股利</mat-label>
+      <mat-select>
+        <mat-option value="one">買</mat-option>
+        <mat-option value="two">賣</mat-option>
+        <mat-option value="three">股利</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>股票</mat-label>
+      <input type="search" matInput>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+        <mat-label>交易類別</mat-label>
+        <mat-select>
+          <mat-option value="one">一般</mat-option>
+          <mat-option value="two">ETF</mat-option>
+          <mat-option value="three">當沖</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>買入股數</mat-label>
+        <input type="search" matInput>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>買入價格</mat-label>
+        <input type="search" matInput>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>賣出價格</mat-label>
+        <input type="search" matInput>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>賣出價格</mat-label>
+        <input type="search" matInput>
+      </mat-form-field>
+      <br>
+</mat-card>
+<mat-card>
+    <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource">
+          <ng-container matColumnDef="StockName">
+            <th mat-header-cell *matHeaderCellDef> 股票 </th>
+            <td mat-cell *matCellDef="let Futures"> {{Futures.Date}} </td>
+          </ng-container>
+          <ng-container matColumnDef="BuyLot">
+            <th mat-header-cell *matHeaderCellDef> 持有股數 </th>
+            <td mat-cell *matCellDef="let Futures"> {{Futures.TAIEX}} </td>
+          </ng-container>
+          <ng-container matColumnDef="BuyPrice">
+            <th mat-header-cell *matHeaderCellDef> 買入均價 </th>
+            <td mat-cell *matCellDef="let Futures"> {{Futures.Fluctuation}} </td>
+          </ng-container>
+          <ng-container matColumnDef="HandingCharge">
+            <th mat-header-cell *matHeaderCellDef> 交易成本 </th>
+            <td mat-cell *matCellDef="let Futures"> {{Futures.ForeignInvestors}} </td>
+          </ng-container>
+          <ng-container matColumnDef="FinalPrice">
+            <th mat-header-cell *matHeaderCellDef> 支出 </th>
+            <td mat-cell *matCellDef="let Futures"> {{Futures.InvestmentTrust}} </td>
+          </ng-container>
+              <ng-container matColumnDef="CurrentPrice">
+            <th mat-header-cell *matHeaderCellDef> 現價 </th>
+            <td mat-cell *matCellDef="let Futures"> {{Futures.Dealer}} </td>
+          </ng-container>
+              <ng-container matColumnDef="MarketValue">
+            <th mat-header-cell *matHeaderCellDef> 市值 </th>
+            <td mat-cell *matCellDef="let Futures"> {{Futures.Margin}} </td>
+          </ng-container>
+              <ng-container matColumnDef="UGAL">
+            <th mat-header-cell *matHeaderCellDef> 未實現損益 </th>
+            <td mat-cell *matCellDef="let Futures"> {{Futures.MarginChange}} </td>
+          </ng-container>
+              <ng-container matColumnDef="UGALR">
+            <th mat-header-cell *matHeaderCellDef> 未實現損益率    </th>
+            <td mat-cell *matCellDef="let Futures"> {{Futures.ShortSelling}} </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      
+        <mat-paginator [length]="5"
+                    [pageSize]="5"
+                    [pageSizeOptions]="[5, 10, 25]">
+        </mat-paginator>
+      
+      </div>      
+</mat-card>

@@ -1,0 +1,67 @@
+<div class="mat-elevation-z8">
+  <mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="Date">
+      <mat-header-cell *matHeaderCellDef> 日期 </mat-header-cell>
+      <mat-cell *matCellDef="let Option"> {{ Option.Date }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="FuturesClosingPrice">
+      <mat-header-cell *matHeaderCellDef>   期貨收盤價 </mat-header-cell>
+      <mat-cell *matCellDef="let Option">  {{ Option.FuturesClosingPrice }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="Fluctuation">
+      <mat-header-cell *matHeaderCellDef> 漲跌 </mat-header-cell>
+      <mat-cell *matCellDef="let Option"> {{ Option.Fluctuation }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="BuyCall">
+      <mat-header-cell *matHeaderCellDef> 買買權</mat-header-cell>
+      <mat-cell *matCellDef="let Option"> {{ Option.BuyCall }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="BuyCallChange">
+      <mat-header-cell *matHeaderCellDef> 買買權增減 </mat-header-cell>
+      <mat-cell *matCellDef="let Option"> {{ Option.BuyCallChange }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="BuyPut">
+      <mat-header-cell *matHeaderCellDef> 買賣權 </mat-header-cell>
+      <mat-cell *matCellDef="let Option"> {{ Option.BuyPut }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="BuyPutChange">
+      <mat-header-cell *matHeaderCellDef> 買賣權增減 </mat-header-cell>
+      <mat-cell *matCellDef="let Option"> {{ Option.BuyPutChange }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="SellCall">
+      <mat-header-cell *matHeaderCellDef> 賣買權 </mat-header-cell>
+      <mat-cell *matCellDef="let Option"> {{ Option.SellCall }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="SellCallChange">
+      <mat-header-cell *matHeaderCellDef> 賣買權增減 </mat-header-cell>
+      <mat-cell *matCellDef="let Option"> {{ Option.SellCallChange }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="SellPut">
+      <mat-header-cell *matHeaderCellDef> 賣賣權 </mat-header-cell>
+      <mat-cell *matCellDef="let Option"> {{ Option.SellPut }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="SellPutChange">
+      <mat-header-cell *matHeaderCellDef> 賣賣權增減 </mat-header-cell>
+      <mat-cell *matCellDef="let Option"> {{ Option.SellPutChange }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="BuyNet">
+      <mat-header-cell *matHeaderCellDef> 買方未平倉淨額 </mat-header-cell>
+      <mat-cell *matCellDef="let Option"> {{ Option.BuyNet }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="SellNet">
+      <mat-header-cell *matHeaderCellDef> 賣方未平倉淨額 </mat-header-cell>
+      <mat-cell *matCellDef="let Option"> {{ Option.SellNet }} </mat-cell>
+    </ng-container>
+        <ng-container matColumnDef="BuyOpenPosition">
+      <mat-header-cell *matHeaderCellDef> 買權未平倉 </mat-header-cell>
+      <mat-cell *matCellDef="let Option"> {{ Option.BuyOpenPosition }} </mat-cell>
+    </ng-container>
+        <ng-container matColumnDef="SellOpenPosition">
+      <mat-header-cell *matHeaderCellDef> 賣權未平倉 </mat-header-cell>
+      <mat-cell *matCellDef="let Option"> {{ Option.SellOpenPosition }} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+</div>

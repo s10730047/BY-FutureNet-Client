@@ -1,0 +1,91 @@
+<nz-layout class="app-layout">
+  <nz-sider
+    class="menu-sidebar"
+    nzCollapsible
+    nzWidth="256px"
+    nzBreakpoint="md"
+    [(nzCollapsed)]="isCollapsed"
+    [nzTrigger]="null"
+  >
+    <div class="sidebar-logo">
+      <a routerLink="/header/home" >
+        <img src="../../assets/playing-cards.svg" alt="logo" />
+        <h1>柏宇未來網</h1>
+      </a>
+    </div>
+    <ul
+      nz-menu
+      nzTheme="dark"
+      nzMode="inline"
+      [nzInlineCollapsed]="isCollapsed"
+    >
+      <li nz-submenu nzOpen nzTitle="籌碼變化" nzIcon="dollar-circle">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/header/option">選擇權</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/header/bargaining-chip">期貨</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a>個股</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/header/otherChart">其他圖表</a>
+          </li>
+        </ul>
+      </li>
+      <li nz-submenu nzOpen nzTitle="個股分析" nzIcon="form">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a>財務報表</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a>EPS股價推估</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a>公司資料</a>
+          </li>
+        </ul>
+      </li>
+      <li nz-submenu nzOpen nzTitle="技術分析" nzIcon="sliders">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a>K線</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-header>
+      <div class="app-header">
+        <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+          <i
+            class="trigger"
+            nz-icon
+            [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+          ></i>
+        </span>
+        <button
+          mat-button
+          [matMenuTriggerFor]="information"
+          style="float: right"
+        >
+          <img src="../../assets/yaya.jpg" alt="avatar" class="avatar" />
+          陳柏宇
+        </button>
+
+        <mat-menu #information="matMenu">
+          <button mat-menu-item>帳號管理</button>
+          <button mat-menu-item>登出</button>
+        </mat-menu>
+      </div>
+    </nz-header>
+    <nz-content>
+      <div class="inner-content">
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+  </nz-layout>
+</nz-layout>

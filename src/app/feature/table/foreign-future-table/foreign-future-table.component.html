@@ -1,0 +1,82 @@
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="Date">
+      <th mat-header-cell *matHeaderCellDef> 日期 </th>
+      <td mat-cell *matCellDef="let Futures"> {{Futures.Date}} </td>
+    </ng-container>
+    <ng-container matColumnDef="TAIEX">
+      <th mat-header-cell *matHeaderCellDef> 加權指數 </th>
+      <td mat-cell *matCellDef="let Futures"> {{Futures.TAIEX}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Fluctuation">
+      <th mat-header-cell *matHeaderCellDef> 漲跌 </th>
+      <td mat-cell *matCellDef="let Futures"> {{Futures.Fluctuation}} </td>
+    </ng-container>
+    <ng-container matColumnDef="ForeignInvestors">
+      <th mat-header-cell *matHeaderCellDef> 外資 </th>
+      <td mat-cell *matCellDef="let Futures"> {{Futures.ForeignInvestors}} </td>
+    </ng-container>
+    <ng-container matColumnDef="InvestmentTrust">
+      <th mat-header-cell *matHeaderCellDef> 投信 </th>
+      <td mat-cell *matCellDef="let Futures"> {{Futures.InvestmentTrust}} </td>
+    </ng-container>
+
+        <ng-container matColumnDef="Dealer">
+      <th mat-header-cell *matHeaderCellDef> 自營商 </th>
+      <td mat-cell *matCellDef="let Futures"> {{Futures.Dealer}} </td>
+    </ng-container>
+
+        <ng-container matColumnDef="Margin">
+      <th mat-header-cell *matHeaderCellDef> 融資 </th>
+      <td mat-cell *matCellDef="let Futures"> {{Futures.Margin}} </td>
+    </ng-container>
+
+        <ng-container matColumnDef="MarginChange">
+      <th mat-header-cell *matHeaderCellDef> 融資增減 </th>
+      <td mat-cell *matCellDef="let Futures"> {{Futures.MarginChange}} </td>
+    </ng-container>
+
+        <ng-container matColumnDef="ShortSelling">
+      <th mat-header-cell *matHeaderCellDef> 融券    </th>
+      <td mat-cell *matCellDef="let Futures"> {{Futures.ShortSelling}} </td>
+    </ng-container>
+
+        <ng-container matColumnDef="ShortSellingChang">
+      <th mat-header-cell *matHeaderCellDef> 融券增減 </th>
+      <td mat-cell *matCellDef="let Futures"> {{Futures.ShortSellingChang}} </td>
+    </ng-container>
+
+        <ng-container matColumnDef="FuturesLongOpenPosition">
+      <th mat-header-cell *matHeaderCellDef> 外資多單未平倉 </th>
+      <td mat-cell *matCellDef="let Futures"> {{Futures.FuturesLongOpenPosition}} </td>
+    </ng-container>
+
+        <ng-container matColumnDef="FuturesShortOpenPosition">
+      <th mat-header-cell *matHeaderCellDef> 外資空單未平倉 </th>
+      <td mat-cell *matCellDef="let Futures"> {{Futures.FuturesShortOpenPosition}} </td>
+    </ng-container>
+
+        <ng-container matColumnDef="FuturesNet">
+      <th mat-header-cell *matHeaderCellDef> 期貨淨額 </th>
+      <td mat-cell *matCellDef="let Futures"> {{Futures.FuturesNet}} </td>
+    </ng-container>
+
+        <ng-container matColumnDef="FuturesLongVary">
+      <th mat-header-cell *matHeaderCellDef> 多單未平倉增減 </th>
+      <td mat-cell *matCellDef="let Futures"> {{Futures.FuturesLongVary}} </td>
+    </ng-container>
+
+        <ng-container matColumnDef="FuturesShortVary">
+      <th mat-header-cell *matHeaderCellDef> 空單未平倉增減 </th>
+      <td mat-cell *matCellDef="let Futures"> {{Futures.FuturesShortVary}} </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [length]="5"
+              [pageSize]="5"
+              [pageSizeOptions]="[5, 10, 25]">
+  </mat-paginator>
+
+</div>
